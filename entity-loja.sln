@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "entity-loja", "entity-loja\entity-loja.csproj", "{F2935678-1288-4ABD-800E-6A81FEF111B0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F2935678-1288-4ABD-800E-6A81FEF111B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2935678-1288-4ABD-800E-6A81FEF111B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2935678-1288-4ABD-800E-6A81FEF111B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2935678-1288-4ABD-800E-6A81FEF111B0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
