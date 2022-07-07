@@ -10,7 +10,6 @@ namespace entity_loja.Repo.Entities
 
 
 
-
         public override string ToString()
         {
            return $"Produto: {Id}, {Nome}, {Categoria}, {PrecoUnitario}, {Unidade}";

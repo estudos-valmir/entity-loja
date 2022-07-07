@@ -1,3 +1,4 @@
+using System;
 using entity_loja.Repo.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,7 +12,9 @@ namespace entity_loja.Repo.Context
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=LojaDB;Trusted_Connection=true;");
+            var connection = "server=localhost;port=3306;database=database-entity;user=user-entity;password=123entity";
+            var version = new MariaDbServerVersion(new Version(10,6,0)); 
+            optionsBuilder.UseMySql(connection, version );
         }
         
         

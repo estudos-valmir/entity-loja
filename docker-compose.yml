@@ -1,0 +1,39 @@
+services:
+    mariadb-entity:
+        image: mariadb:10.6.0
+        container_name: cont-mariadb-entity
+        restart: always
+        networks:
+            - network-entity
+        ports:
+            - "3306:3306"
+        environment:
+            MARIADB_DATABASE: database-entity
+            MARIADB_USER: user-entity
+            MARIADB_PASSWORD: "123entity"
+            MARIADB_RANDOM_ROOT_PASSWORD: 1
+        volumes:
+            - volume-entity:/var/lib/mysql
+
+    phpmmyadmin-entity:
+        image: phpmyadmin:latest
+        container_name: cont-phpmyadmin-entity
+        restart: always
+        ports:
+            - "8080:80"
+        links:
+            - mariadb-entity
+        networks:
+            - network-entity
+        environment:
+            - PMA_ARBITRARY=1
+        depends_on:
+            - mariadb-entity
+
+networks:
+    network-entity:
+        driver: bridge
+
+volumes:
+    volume-entity:
+        external: true

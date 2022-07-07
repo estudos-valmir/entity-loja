@@ -14,6 +14,7 @@ namespace entity_loja.Repo.DAOS
         public ProdutoDAOEntity()
         {
             _contexto = new LojaContext();
+
         }
 
         public void Adicionar(Produto produto)
