@@ -1,17 +1,17 @@
 services:
-    mariadb-entity:
-        image: mariadb:10.6.0
-        container_name: cont-mariadb-entity
+    percona-entity:
+        image: percona:5.7.35-centos
+        container_name: cont-percona-entity
         restart: always
         networks:
             - network-entity
         ports:
             - "3306:3306"
         environment:
-            MARIADB_DATABASE: database-entity
-            MARIADB_USER: user-entity
-            MARIADB_PASSWORD: "123entity"
-            MARIADB_RANDOM_ROOT_PASSWORD: 1
+            MYSQL_DATABASE: database-entity
+            MYSQL_USER: user-entity
+            MYSQL_PASSWORD: "123entity"
+            MYSQL_RANDOM_ROOT_PASSWORD: 1
         volumes:
             - volume-entity:/var/lib/mysql
 
@@ -22,13 +22,13 @@ services:
         ports:
             - "8080:80"
         links:
-            - mariadb-entity
+            - percona-entity
         networks:
             - network-entity
         environment:
             - PMA_ARBITRARY=1
         depends_on:
-            - mariadb-entity
+            - percona-entity
 
 networks:
     network-entity:

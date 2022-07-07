@@ -21,13 +21,4 @@ dotnet-ef migrations add teste --project entity-loja/entity-loja.csproj
 dotnet-ef database update --project entity-loja/entity-loja.csproj
 
 
-
-```
-
-#Comandos utilizados SQL
-
-```SQL
-create user 'valmirsl'@'%' identified by '123abc';
-grant all on * to 'valmirsl'@'%';
-
 ```

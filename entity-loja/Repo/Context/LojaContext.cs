@@ -13,7 +13,7 @@ namespace entity_loja.Repo.Context
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var connection = "server=localhost;port=3306;database=database-entity;user=user-entity;password=123entity";
-            var version = new MariaDbServerVersion(new Version(10,6,0)); 
+            var version = new MySqlServerVersion(new Version(10,6,0)); 
             optionsBuilder.UseMySql(connection, version );
         }
         
