@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using entity_loja.Repo.Context;
 
@@ -10,9 +11,10 @@ using entity_loja.Repo.Context;
 namespace entity_loja.Migrations
 {
     [DbContext(typeof(LojaContext))]
-    partial class LojaContextModelSnapshot : ModelSnapshot
+    [Migration("20220709212930_promocao")]
+    partial class promocao
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -73,7 +75,7 @@ namespace entity_loja.Migrations
                     b.Property<DateTime>("DataFim")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<DateTime>("DataIniciacao")
+                    b.Property<DateTime>("DataIniciao")
                         .HasColumnType("datetime(6)");
 
                     b.Property<string>("Descricao")
