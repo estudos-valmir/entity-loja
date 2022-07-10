@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using entity_loja.Utils;
 
-namespace entity_loja.Repo.Entities
+namespace entity_loja.Entities
 {
 
     public class Promocao
@@ -26,7 +26,7 @@ namespace entity_loja.Repo.Entities
             var sb = new StringBuilder();
 
             sb.AppendLine(@$"Promocao: [{Id}], {Descricao}, {DataIniciacao}, {DataFim}");
-            sb.AppendLine(Util.ListaToString<Produto>(Produtos));
+            //sb.AppendLine(Util.ListaToString<Produto>(Produtos));
 
             return sb.ToString();
         }

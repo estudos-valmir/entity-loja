@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace entity_loja.Repo.Entities
+namespace entity_loja.Entities
 {
     public class Compra
     {
@@ -15,7 +15,7 @@ namespace entity_loja.Repo.Entities
             var sb = new StringBuilder();
 
             sb.AppendLine($"Compra: [{Id}], {Quantidade}, {Preco}");
-            sb.AppendLine(Produto.ToString());
+            //sb.AppendLine(Produto.ToString());
             return sb.ToString();
         }
     }

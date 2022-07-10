@@ -1,8 +1,6 @@
 ﻿using System;
 using entity_loja.Repo.DAOS;
-using entity_loja.Repo.Context;
-using entity_loja.Repo.Entities;
-using System.Linq;
+using entity_loja.Entities;
 
 namespace entity_loja
 {
@@ -12,6 +10,30 @@ namespace entity_loja
         {
             // UmParaMuitos();
             // MuitosParaMuitos();
+            // UmParaUm();
+
+
+        }
+
+        private static void UmParaUm()
+        {
+            var cliente = new Cliente()
+            {
+                Nome = "Joao do teste",
+                EnderecoEntrega = new Endereco()
+                {
+                    Numero = 12,
+                    Logradouro = "Rua da cidade",
+                    Complemento = "Casa",
+                    Bairro = "Centro",
+                    Cidade = "São Paulo"
+                }
+            };
+
+            using (var repo = new BaseDAOEntity<Cliente>())
+            {
+                repo.Adicionar(cliente);
+            }
         }
 
         private static void UmParaMuitos()
@@ -36,6 +58,7 @@ namespace entity_loja
                 repo.Adicionar(compra);
                 repo.Print();
             }
+
         }
 
         private static void MuitosParaMuitos()
@@ -47,17 +70,17 @@ namespace entity_loja
             promocaoPascoa.DataFim = DateTime.Now.AddMonths(3);
             promocaoPascoa.Produtos.Add(new Produto()
             {
-                Nome = "Suco de Laranja",
-                Categoria = "Bebidas",
-                Unidade = "litros",
-                PrecoUnitario = 25.30
+                Nome = "Maçã",
+                Categoria = "Frutas",
+                Unidade = "unidade",
+                PrecoUnitario = 5.00
             });
             promocaoPascoa.Produtos.Add(new Produto()
             {
-                Nome = "Biscoito",
+                Nome = "Nescau",
                 Categoria = "Alimentos",
                 Unidade = "gramas",
-                PrecoUnitario = 3.50
+                PrecoUnitario = 10.15
             });
 
             using (var repo = new BaseDAOEntity<Promocao>())

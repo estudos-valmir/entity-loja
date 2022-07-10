@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Text;
 using entity_loja.Utils;
-namespace entity_loja.Repo.Entities
+namespace entity_loja.Entities
 {
     public class Produto
     {
@@ -22,10 +22,10 @@ namespace entity_loja.Repo.Entities
         public override string ToString()
         {
 
-            StringBuilder sb = new StringBuilder();
+            var sb = new StringBuilder();
 
             sb.AppendLine(@$"Produto: [{Id}], {Nome}, {Categoria}, {PrecoUnitario}, {Unidade}");
-            sb.AppendLine(Util.ListaToString<Promocao>(Promocoes));
+            //sb.AppendLine(Util.ListaToString<Promocao>(Promocoes));
 
             return sb.ToString();
         }
