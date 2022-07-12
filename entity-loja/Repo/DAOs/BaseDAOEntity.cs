@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using entity_loja.Entities;
 using entity_loja.Repo.Context;
 using entity_loja.Repo.Interfaces;
 using entity_loja.Utils;
@@ -52,6 +53,11 @@ namespace entity_loja.Repo.DAOS
         {
             _contexto.Set<T>().Remove(dbSet);
             _contexto.SaveChanges();
+        }
+
+        public LojaContext Sefie()
+        {
+            return _contexto;
         }
 
     }

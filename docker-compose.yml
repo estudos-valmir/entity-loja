@@ -30,6 +30,27 @@ services:
         depends_on:
             - percona-entity
 
+    sqlserver-entity:
+        image: mcr.microsoft.com/mssql/server:2022-latest
+        container_name: cont-sqlserver-entity
+        restart: always
+        ports:
+            - "1433:1433"
+        environment:
+            - ACCEPT_EULA=Y
+            - SA_PASSWORD=123entity
+        networks:
+            - network-entity
+
+    oracle-express-entity:
+        container_name: cont-oracle-express-entity
+        build: 21.3.0/
+        restart: always
+        ports:
+            - 1521:1521
+        networks:
+            - network-entity
+
 networks:
     network-entity:
         driver: bridge

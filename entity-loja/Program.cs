@@ -1,6 +1,9 @@
 ﻿using System;
 using entity_loja.Repo.DAOS;
 using entity_loja.Entities;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using entity_loja.Repo.Context;
 
 namespace entity_loja
 {
@@ -13,6 +16,40 @@ namespace entity_loja
             // UmParaUm();
 
 
+            ConsultaNormal();
+            ConsultaCarregamentoExplicito();
+
+
+        }
+
+        private static void ConsultaNormal()
+        {
+            using (var context = new LojaContext())
+            {
+                var teste = context.Promocoes
+                .Where(p => p.Id == 1)
+                .Include(p => p.Produtos)
+                .ToList()
+                .FirstOrDefault();
+            }
+        }
+
+        private static void ConsultaCarregamentoExplicito()
+        {
+            using (var context = new LojaContext())
+            {
+                var teste = context.Promocoes
+                .Where(p => p.Id == 1)
+                .ToList()
+                .FirstOrDefault();
+
+                context
+                .Entry(teste)
+                .Collection(p => p.Produtos)
+                .Query()
+                .Where(p => p.PrecoUnitario > 2)
+                .Load();
+            }
         }
 
         private static void UmParaUm()
